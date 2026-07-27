@@ -1,32 +1,32 @@
 {
-	"short_name": "Couples Kanban",
-	"name": "Couples Kanban",
-	"description": "Who says love can't be organized?",
-	"icons": [
-		{
-			"src": "favicon-192x192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "favicon-512x512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		}
-	],
-	"display": "standalone",
-	"theme_color": "black",
-	"background_color": "#ff8080",
-	"start_url": "/kanban/",
-	"scope": "/kanban/",
-	"share_target": {
-		"action": "https://loremdipso.com/kanban",
-		"method": "GET",
-		"enctype": "application/x-www-form-urlencoded",
-		"params": {
-			"title": "name",
-			"text": "description",
-			"url": "link"
-		}
-	}
+  "short_name": "Companionship Kanban",
+  "name": "Companionship Kanban",
+  "description": "Who says love can't be organized?",
+  "icons": [
+    {
+      "src": "favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "black",
+  "background_color": "#ff8080",
+  "start_url": "/kanban/",
+  "scope": "/kanban/",
+  "share_target": {
+    "action": "https://loremdipso.com/kanban",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "name",
+      "text": "description",
+      "url": "link"
+    }
+  }
 }
