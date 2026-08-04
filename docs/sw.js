@@ -53,13 +53,15 @@ self.addEventListener("push", (event) => {
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
-  // Paths in the payload are app-relative ("/task/123"); the app itself may
-  // be served from a subdirectory, so resolve against this worker's own
-  // scope rather than the origin root.
-  const target = new URL(
-    (event.notification.data && event.notification.data.url) || "/",
-    self.registration.scope.replace(/\/$/, "") + "/",
-  ).href;
+  // Paths in the payload are app-relative ("/task/123"), but the app is
+  // served from a subdirectory ("/kanban/"). The leading slash has to be
+  // stripped before resolving: new URL("/task/123", ".../kanban/") resolves
+  // an absolute path against the *origin*, giving ".../task/123" and
+  // dropping the subdirectory entirely -- so every notification click landed
+  // outside the app.
+  const path = (event.notification.data && event.notification.data.url) || "/";
+  const target = new URL(String(path).replace(/^\/+/, ""), self.registration.scope)
+    .href;
 
   event.waitUntil(
     self.clients
